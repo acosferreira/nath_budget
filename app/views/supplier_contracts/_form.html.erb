@@ -1,0 +1,13 @@
+<%= simple_form_for @supplier_contract, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :initial_date %>
+  <%= f.input :description %>
+  <%= f.input :observation %>
+  <%= f.input :agence %>
+  <%= f.input :account_number %>
+  <%= f.association :supplier %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                supplier_contracts_path, :class => 'btn' %>
+  </div>
+<% end %>

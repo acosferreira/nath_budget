@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  total_value: 1.5
+  time_to_conclude: 1
+  competence_center: 
+
+two:
+  total_value: 1.5
+  time_to_conclude: 1
+  competence_center: 

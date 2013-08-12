@@ -1,0 +1,3 @@
+== Welcome to Budget System
+This system was developed to save Nath with her budget management
+

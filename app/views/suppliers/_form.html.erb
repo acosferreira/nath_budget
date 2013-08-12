@@ -1,0 +1,39 @@
+<%= simple_form_for @supplier, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :type_supplier,:collection=>["Física", "Juridica"], :input_html => {:onchange=>"get_identifier()"}%>
+  <%= f.input :cpf %>
+  <%= f.input :cnpj  %>
+  <%= f.input :contact_name %>
+  <%= f.input :contact_telephone %>
+  <%= f.input :contact_email , placeholder: 'user@domain.com'%>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                suppliers_path, :class => 'btn' %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    if ($('.supplier_cpf').val()==""){
+      $('.supplier_cpf').hide();}
+    if ($('.supplier_cnpj').val()==""){
+      $('.supplier_cnpj').hide();}
+  });
+function get_identifier(){
+  type = $("#supplier_type_supplier").val()
+  if (type == 'Física'){
+    $('.supplier_cpf').show();
+    $('.supplier_cnpj').hide();
+  }
+    else
+  {
+   $('.supplier_cnpj').show();
+   $('.supplier_cpf').hide();
+  }
+}
+
+
+</script>

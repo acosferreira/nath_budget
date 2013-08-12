@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  value: 1.5
+  pay_day: 2013-08-01
+  budget: 
+
+two:
+  value: 1.5
+  pay_day: 2013-08-01
+  budget: 
