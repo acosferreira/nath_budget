@@ -170,6 +170,7 @@ GEM
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.4)
+    pg (0.15.1)
 
 PLATFORMS
   ruby
