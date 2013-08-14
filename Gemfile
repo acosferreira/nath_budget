@@ -16,7 +16,6 @@ gem 'heroku'
 gem 'unicorn'
 # Gems used only for assets and not required
 # in production environments by default.
-gem "twitter-bootstrap-rails", "~> 2.0rc0"
   
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -26,6 +25,8 @@ group :assets do
   gem 'therubyracer', :platforms => :ruby
   gem "less-rails"
  # gem 'twitter-bootstrap-rails'
+  gem "twitter-bootstrap-rails", "~> 2.0rc0"
+
   gem 'uglifier', '>= 1.0.3'
  
 end
