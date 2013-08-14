@@ -1,4 +1,13 @@
 Bbm::Application.routes.draw do
+  resources :branches
+
+
+  resources :supplier_accounts
+
+
+  resources :banks
+
+
   resources :manager_accounts
 
 
