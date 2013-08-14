@@ -196,7 +196,7 @@ DEPENDENCIES
   simple_form
   simplecov
   therubyracer
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails (~> 2.0rc0)
   uglifier (>= 1.0.3)
   unicorn
   will_paginate (~> 3.0)
