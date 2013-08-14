@@ -20,7 +20,7 @@ class Budget < ActiveRecord::Base
   end
 
   def create_payments
-    if !self.payments.blank?
+    if self.payments.blank?
       qtd_parcelas = (12/self.recurrency.value)
   	  value = total_value/qtd_parcelas
   	 (1..qtd_parcelas).each do |payment|
