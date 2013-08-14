@@ -6,14 +6,14 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
-gem 'mysql'
+gem 'pg'
 gem 'devise'
 gem 'simple_form'
 gem 'pry'
 gem 'will_paginate', '~> 3.0'
 gem 'rails-breadcrumbs'
 gem 'heroku'
-
+gem 'unicorn'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
