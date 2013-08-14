@@ -1,0 +1,19 @@
+<table class="table table-striped">
+ <%if !@competence_center.budgets.blank? %>
+   
+
+  <tr>
+  	<th> Budget</th>
+  	<th> Value</th>
+  	<th> Due Date</th>
+  </tr>
+   <% @competence_center.budgets.each do |budget| %>
+  <tr>
+  	<td><%=budget.name%></td>
+  	<td><%=budget.total_value%></td>
+  	<td><%=budget.expiration_date%></td>
+  </tr>
+  
+  <%end%>
+  <%end%>
+  </table>

@@ -1,15 +1,16 @@
 class Budget < ActiveRecord::Base
   belongs_to :competence_center
   belongs_to :supplier
-
+  belongs_to :recurrency
   has_many :payments,  :dependent => :delete_all
 
-  attr_accessible :time_to_conclude, :total_value, :supplier_id, :competence_center_id
+  attr_accessible :name, :time_to_conclude, :total_value, :supplier_id, :competence_center_id, :contract_number, :expiration_date, :recurrency_id
 
   validates :time_to_conclude, :presence=>true
   validates :total_value, :presence=>true
   validates :competence_center, :presence=>true
   validates :supplier, :presence=>true
+  validates :contract_number, :uniqueness=>true
 
   before_save :set_balance
   after_save :create_payments
@@ -19,9 +20,12 @@ class Budget < ActiveRecord::Base
   end
 
   def create_payments
-  	value = total_value/time_to_conclude
-  	(1..self.time_to_conclude).each do |payment|
-  		Payment.create(:value =>value,:pay_day=>(Date.today +(30*payment)), :budget_id=> self.id)
-  	end
+    if !self.payments.blank?
+      qtd_parcelas = (12/self.recurrency.value)
+  	  value = total_value/qtd_parcelas
+  	 (1..qtd_parcelas).each do |payment|
+  	   	Payment.create(:value =>value,:pay_day=>(Date.today +(30*payment)), :budget_id=> self.id)
+  	  end
+    end
   end
 end

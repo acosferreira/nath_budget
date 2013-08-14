@@ -1,6 +1,9 @@
 class Supplier < ActiveRecord::Base
   attr_accessible :contact_email, :contact_name, :contact_telephone, :contract, :name, :cpf, :cnpj, :type_supplier
 
+  has_one :supplier_account
+  has_many :budgets
+
   validates :contact_email, :presence=>true
   validates :contact_name, :presence=>true
   validates :contact_telephone, :presence=>true

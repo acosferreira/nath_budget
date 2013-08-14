@@ -1,0 +1,20 @@
+<table class="table table-striped">
+ <%if !@supplier.budgets.blank? %>
+    <% @supplier.budgets.each do |budget| %>
+
+  <tr>
+  	<th> Budget</th>
+  	<th> Value</th>
+  	<th> Due Date</th>
+  </tr>
+  <%budget.payments.each do |payment|%>
+  <tr>
+  	<td><%=budget.name%></td>
+  	<td><%=payment.value%></td>
+  	<td><%=payment.pay_day%></td>
+  </tr>
+  <%end%>
+  
+  <%end%>
+  <%end%>
+  </table>

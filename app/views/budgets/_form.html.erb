@@ -1,8 +1,13 @@
 <%= simple_form_for @budget, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :total_value %>
-  <%= f.input :time_to_conclude %>
+
   <%= f.association :competence_center %>
   <%= f.association :supplier  %>
+  <%= f.input :name %>
+  <%= f.input :total_value %>
+  <%= f.input :time_to_conclude %>
+  <%= f.input :contract_number%>
+  <%= f.input :expiration_date%>
+  <%= f.association :recurrency%>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

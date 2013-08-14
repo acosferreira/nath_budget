@@ -1,0 +1,11 @@
+<%= simple_form_for @supplier_account, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.association :bank %>
+  <%= f.input :agence %>
+  <%= f.input :number %>
+  <%= f.association :supplier %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                supplier_accounts_path, :class => 'btn' %>
+  </div>
+<% end %>

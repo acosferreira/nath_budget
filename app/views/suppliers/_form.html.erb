@@ -6,17 +6,22 @@
   <%= f.input :contact_name %>
   <%= f.input :contact_telephone %>
   <%= f.input :contact_email , placeholder: 'user@domain.com'%>
-
   <div class="form-actions">
+  <%= link_to t('.edit', :default =>  "Add Account"),
+                      new_supplier_account_path(:supplier=>@supplier.id),
+                       :class => 'btn btn-mini' if !@supplier.blank? %>
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 suppliers_path, :class => 'btn' %>
   </div>
 <% end %>
 
+<div>
+  <%= render :partial=>"payments"%>
+</div>
+
 <script type="text/javascript">
   $(document).ready(function() {
-
     if ($('.supplier_cpf').val()==""){
       $('.supplier_cpf').hide();}
     if ($('.supplier_cnpj').val()==""){
