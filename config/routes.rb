@@ -1,4 +1,7 @@
 Bbm::Application.routes.draw do
+  resources :functions
+
+
   resources :branches
 
 
