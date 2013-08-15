@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
     if ActiveRecord::Base.connection.adapter_name=='SQLite'
       @payments = Payment.find(:all,:conditions => ["strftime('%m', pay_day) = ?",month])
     else
-      @payments = Payment.find(:all,:conditions => ["to_char(pay_day, 'MM') =#{month}"])
+      @payments = Payment.find(:all,:conditions => ["to_char(pay_day, 'MM') ='#{month}'"])
     end
     respond_to do |format|
       format.html # index.html.erb
