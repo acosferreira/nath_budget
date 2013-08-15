@@ -9,7 +9,11 @@ class PaymentsController < ApplicationController
   def index
     params[:month].blank? ? month= '%02d'%Date.today.month : month = '%02d'%params[:month] 
     #month = '%02d'%params[:month] || '%02d'%Date.today.month
+    if ActiveRecord::Base.connection.adapter_name=='SQLite'
       @payments = Payment.find(:all,:conditions => ["strftime('%m', pay_day) = ?",month])
+    else
+      @payments = Payment.find(:all,:conditions => ["to_char(pay_day, 'MM') =#{month}"])
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @payments }
