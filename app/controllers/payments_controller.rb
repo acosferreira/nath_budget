@@ -30,7 +30,9 @@ class PaymentsController < ApplicationController
   # GET /payments/new.json
   def new
     @payment = Payment.new
-
+    if params
+      @payment.supplier_id = params[:supplier] 
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @payment }

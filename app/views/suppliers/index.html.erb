@@ -26,6 +26,9 @@
         <td><%= supplier.contact_email %></td>
         <td><%=l supplier.created_at %></td>
         <td>
+
+          <%= link_to t('.edit', :default => 'Add Payment'),
+                      new_payment_path(:supplier=>supplier.id), :class => 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_supplier_path(supplier), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

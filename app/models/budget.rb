@@ -24,7 +24,7 @@ class Budget < ActiveRecord::Base
       qtd_parcelas = (12/self.recurrency.value)
   	  value = total_value/qtd_parcelas
   	 (1..qtd_parcelas).each do |payment|
-  	   	Payment.create(:value =>value,:pay_day=>(Date.today +(30*payment)), :budget_id=> self.id)
+  	   	Payment.create(:value =>value,:pay_day=>(Date.today +(30*payment)), :budget_id=> self.id, :supplier_id=>self.supplier.id)
   	  end
     end
   end
