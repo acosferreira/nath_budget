@@ -7,14 +7,16 @@ class PaymentsController < ApplicationController
   add_breadcrumb 'Edit a payment', '', :only => [:edit, :update]
 
   def index
-    @payments = Payment.all
-
+    params[:month].blank? ? month= '%02d'%Date.today.month : month = '%02d'%params[:month] 
+    #month = '%02d'%params[:month] || '%02d'%Date.today.month
+      @payments = Payment.find(:all,:conditions => ["strftime('%m', pay_day) = ?",month])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @payments }
     end
   end
 
+  
   # GET /payments/1
   # GET /payments/1.json
   def show
