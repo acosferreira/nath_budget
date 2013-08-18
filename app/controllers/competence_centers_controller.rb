@@ -7,7 +7,10 @@ class CompetenceCentersController < ApplicationController
   add_breadcrumb 'Edit a competence center', '', :only => [:edit, :update]
 
   def index
-    @competence_centers = CompetenceCenter.all
+    @search = CompetenceCenter.search(params[:q])
+    @competence_centers = @search.result
+    
+   # @competence_centers = CompetenceCenter.all
 
     respond_to do |format|
       format.html # index.html.erb

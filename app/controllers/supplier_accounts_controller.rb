@@ -2,7 +2,10 @@ class SupplierAccountsController < ApplicationController
   # GET /supplier_accounts
   # GET /supplier_accounts.json
   def index
-    @supplier_accounts = SupplierAccount.all
+    @search = SupplierAccount.search(params[:q])
+    @supplier_accounts = @search.result
+    
+    #@supplier_accounts = SupplierAccount.all
 
     respond_to do |format|
       format.html # index.html.erb

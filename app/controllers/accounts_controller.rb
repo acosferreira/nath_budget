@@ -7,7 +7,9 @@ class AccountsController < ApplicationController
   add_breadcrumb 'Edit a account', '', :only => [:edit, :update]
 
   def index
-    @accounts = Account.all
+     @search = Account.search(params[:q])
+    @accounts = @search.result
+    #@accounts = Account.all
 
     respond_to do |format|
       format.html # index.html.erb

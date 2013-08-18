@@ -7,12 +7,10 @@ class SuppliersController < ApplicationController
   add_breadcrumb 'Edit a supplier', '', :only => [:edit, :update]
 
   def index
-    @suppliers = Supplier.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @suppliers }
-    end
+    @search = Supplier.search(params[:q])
+    @suppliers = @search.result
+    #@suppliers = Supplier.all
+    @search.build_condition if @search.conditions.empty?
   end
 
   # GET /suppliers/1

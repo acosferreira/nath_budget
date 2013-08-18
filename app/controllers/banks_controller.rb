@@ -2,7 +2,9 @@ class BanksController < ApplicationController
   # GET /banks
   # GET /banks.json
   def index
-    @banks = Bank.all
+    @search = Bank.search(params[:q])
+    @banks = @search.result
+    #@banks = Bank.all
 
     respond_to do |format|
       format.html # index.html.erb

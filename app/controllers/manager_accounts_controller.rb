@@ -2,7 +2,10 @@ class ManagerAccountsController < ApplicationController
   # GET /manager_accounts
   # GET /manager_accounts.json
   def index
-    @manager_accounts = ManagerAccount.all
+    @search = ManagerAccount.search(params[:q])
+    @manager_accounts = @search.result
+    
+    #@manager_accounts = ManagerAccount.all
 
     respond_to do |format|
       format.html # index.html.erb

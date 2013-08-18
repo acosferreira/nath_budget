@@ -7,7 +7,10 @@ class BudgetsController < ApplicationController
   add_breadcrumb 'Edit a budget', '', :only => [:edit, :update]
 
   def index
-    @budgets = Budget.all
+    @search = Budget.search(params[:q])
+    @budgets = @search.result
+    
+    #@budgets = Budget.all
 
     respond_to do |format|
       format.html # index.html.erb

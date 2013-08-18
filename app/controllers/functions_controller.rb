@@ -2,7 +2,10 @@ class FunctionsController < ApplicationController
   # GET /functions
   # GET /functions.json
   def index
-    @functions = Function.all
+    @search = Function.search(params[:q])
+    @functions = @search.result
+    
+    #@functions = Function.all
 
     respond_to do |format|
       format.html # index.html.erb
