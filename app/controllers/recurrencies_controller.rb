@@ -7,8 +7,10 @@ class RecurrenciesController < ApplicationController
   add_breadcrumb 'Edit a recurrency', '', :only => [:edit, :update]
 
   def index
-    @recurrencies = Recurrency.all
-
+    #@recurrencies = Recurrency.all
+     @search = Recurrency.search(params[:q])
+    @recurrencies= @search.result
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recurrencies }

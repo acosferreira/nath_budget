@@ -10,7 +10,7 @@ class SuppliersController < ApplicationController
     @search = Supplier.search(params[:q])
     @suppliers = @search.result
     #@suppliers = Supplier.all
-    @search.build_condition if @search.conditions.empty?
+    
   end
 
   # GET /suppliers/1
