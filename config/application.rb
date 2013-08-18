@@ -55,7 +55,7 @@ module Bbm
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.compress = false
+   # config.assets.compress = false
     config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets
