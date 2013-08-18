@@ -3,6 +3,17 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
+<div>
+<%= search_form_for @search, url: search_accounts_path, method: :post do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+    <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+</div>
+
+
 <table class="table table-striped">
   <thead>
     <tr>
