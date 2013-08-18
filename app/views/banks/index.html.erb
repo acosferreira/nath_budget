@@ -4,7 +4,7 @@
 </div>
 
 <div>
-<%= search_form_for @search, url: search_banks_path, method: :post do |f| %>
+<%= search_form_for  @search, url: search_banks_path, method: :post do |f| %>
   <%= f.condition_fields do |c| %>
     <%= render "condition_fields", f: c %>
   <% end %>
