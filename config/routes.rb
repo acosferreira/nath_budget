@@ -1,34 +1,33 @@
 Bbm::Application.routes.draw do
-  resources :functions
+  resources :functions 
 
 
-  resources :branches
+  resources :branches 
 
 
-  resources :supplier_accounts
+  resources :supplier_accounts 
 
 
-  resources :banks
+  resources :banks 
 
 
-  resources :manager_accounts
-
+  resources :manager_accounts 
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
   resources :supplier_contracts
 
 
-  resources :recurrencies
+  resources :recurrencies 
 
 
-  resources :payments
+  resources :payments 
 
 
-  resources :budgets
+  resources :budgets 
 
 
-  resources :accounts
+  resources :accounts 
 
 
   resources :competence_centers
@@ -37,7 +36,9 @@ Bbm::Application.routes.draw do
   resources :notifications
 
 
-  resources :suppliers
+  resources :suppliers do
+    collection { post :search, to: 'suppliers#index' }
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
