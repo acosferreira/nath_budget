@@ -14,6 +14,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'rails-breadcrumbs'
 gem 'heroku'
 gem 'unicorn'
+gem 'ransack'
 # Gems used only for assets and not required
 # in production environments by default.
   
