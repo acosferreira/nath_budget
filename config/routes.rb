@@ -1,36 +1,58 @@
 Bbm::Application.routes.draw do
-  resources :functions 
+  resources :functions  do
+    collection { post :search, to: 'functions#index' }
+  end
 
 
-  resources :branches 
+  resources :branches do
+    collection { post :search, to: 'branches#index' }
+  end
 
 
-  resources :supplier_accounts 
+  resources :supplier_accounts do
+    collection { post :search, to: 'supplier_accounts#index' }
+  end
 
 
-  resources :banks 
+  resources :banks do
+    collection { post :search, to: 'banks#index' }
+  end
 
 
-  resources :manager_accounts 
+  resources :manager_accounts do
+    collection { post :search, to: 'manager_accounts#index' }
+  end
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
-  resources :supplier_contracts
+  resources :supplier_contracts do
+    collection { post :search, to: 'supplier_contracts#index' }
+  end
 
 
-  resources :recurrencies 
+  resources :recurrencies do
+    collection { post :search, to: 'recurrenciess#index' }
+  end
 
 
-  resources :payments 
+  resources :payments do
+    collection { post :search, to: 'payments#index' }
+  end
 
 
-  resources :budgets 
+  resources :budgets do
+    collection { post :search, to: 'budgets#index' }
+  end
 
 
-  resources :accounts 
+  resources :accounts do
+    collection { post :search, to: 'accounts#index' }
+  end
 
 
-  resources :competence_centers
+  resources :competence_centers do
+    collection { post :search, to: 'competence_centers#index' }
+  end
 
 
   resources :notifications
