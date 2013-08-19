@@ -21,10 +21,12 @@ class Budget < ActiveRecord::Base
 
   def create_payments
     if self.payments.blank?
-      qtd_parcelas = (12/self.recurrency.value)
+      qtd_parcelas = (self.time_to_conclude/self.recurrency.value)
   	  value = total_value/qtd_parcelas
   	 (1..qtd_parcelas).each do |payment|
-  	   	Payment.create(:value =>value,:pay_day=>(Date.today +(30*payment)), :budget_id=> self.id, :supplier_id=>self.supplier.id)
+        require 'pry'
+        binding.pry
+  	   	Payment.create(:value =>value,:pay_day=>(Date.today+(30*payment)), :budget_id=> self.id, :supplier_id=>self.supplier.id)
   	  end
     end
   end
