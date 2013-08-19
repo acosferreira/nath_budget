@@ -25,7 +25,7 @@ class SupplierContractsController < ApplicationController
   # GET /supplier_contracts/new.json
   def new
     @supplier_contract = SupplierContract.new
-
+    @supplier_contract.supplier_id = params[:supplier] if params[:supplier]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @supplier_contract }
