@@ -40,6 +40,8 @@
 
           <%= link_to t('.edit', :default => 'Add Payment'),
                       new_payment_path(:supplier=>supplier.id), :class => 'btn btn-mini' %>
+                       <%= link_to t('.edit', :default => 'Add Contract'),
+                      new_supplier_contract_path(:supplier=>supplier.id), :class => 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_supplier_path(supplier), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
